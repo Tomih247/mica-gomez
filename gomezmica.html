@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lic. Micaela Gómez | Nutricionista Infantil · San Pedro, Bs.As.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:    #3B6B57;
+      --verde-claro: #5A8F78;
+      --verde-bg: #EFF5F2;
+      --crema:    #FAF8F4;
+      --dorado:   #C4955A;
+      --dorado-claro: #E8C99A;
+      --texto:    #1C2B27;
+      --texto-suave: #4A6358;
+      --blanco:   #FFFFFF;
+      --borde:    #D8E8E1;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--borde);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--verde);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--texto-suave);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--verde); }
+
+    .nav-cta {
+      background: var(--verde);
+      color: var(--blanco) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--verde-claro) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding-top: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      background: linear-gradient(135deg, var(--crema) 0%, var(--verde-bg) 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(196,149,90,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-text {
+      padding: 4rem 3rem 4rem 5rem;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--verde-bg);
+      border: 1px solid var(--borde);
+      color: var(--verde);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--verde);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--texto);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--dorado);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--texto-suave);
+      max-width: 440px;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--verde);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--verde);
+      color: var(--blanco);
+      box-shadow: 0 4px 20px rgba(59,107,87,0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--verde-claro);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(59,107,87,0.35);
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: var(--blanco);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+
+    .btn-wa:hover {
+      background: #1ebe5c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--verde);
+      border: 2px solid var(--borde);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--verde);
+      background: var(--verde-bg);
+      transform: translateY(-2px);
+    }
+
+    /* ── HERO IMAGEN ── */
+    .hero-image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 4rem 4rem 1rem;
+      height: 100%;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 380px;
+      height: 480px;
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      top: 20px; left: 20px;
+      right: -20px; bottom: -20px;
+      border: 2px solid var(--dorado-claro);
+      border-radius: 180px 180px 120px 120px;
+      z-index: 0;
+    }
+
+    .photo-main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 180px 180px 120px 120px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    }
+
+    .photo-badge-ig {
+      position: absolute;
+      bottom: 24px;
+      right: -16px;
+      z-index: 2;
+      background: var(--blanco);
+      border-radius: 16px;
+      padding: 0.75rem 1.2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .photo-badge-ig img.ig-icon {
+      width: 28px; height: 28px;
+    }
+
+    .photo-badge-ig .ig-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ig-handle {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--texto);
+    }
+
+    .ig-followers {
+      font-size: 0.75rem;
+      color: var(--texto-suave);
+    }
+
+    .photo-badge-exp {
+      position: absolute;
+      top: 32px;
+      left: -16px;
+      z-index: 2;
+      background: var(--verde);
+      color: var(--blanco);
+      border-radius: 16px;
+      padding: 0.75rem 1.2rem;
+      box-shadow: 0 8px 30px rgba(59,107,87,0.3);
+      text-align: center;
+    }
+
+    .photo-badge-exp .exp-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .photo-badge-exp .exp-text {
+      font-size: 0.72rem;
+      opacity: 0.9;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      text-align: center;
+      padding: 1rem 0;
+      color: var(--borde);
+      font-size: 1.5rem;
+    }
+
+    /* ── SECCIÓN GENÉRICA ── */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--texto);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--texto-suave);
+      line-height: 1.8;
+    }
+
+    /* ── SERVICIOS ── */
+    #servicios {
+      background: var(--blanco);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--crema);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--verde), var(--dorado));
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(59,107,87,0.1);
+      border-color: var(--verde-claro);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.92rem;
+      color: var(--texto-suave);
+      line-height: 1.7;
+    }
+
+    /* ── SOBRE MÍ ── */
+    #sobre {
+      background: var(--verde-bg);
+    }
+
+    .about-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 24px;
+      object-fit: cover;
+      aspect-ratio: 4/5;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.12);
+    }
+
+    .about-text .section-header {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--texto-suave);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+    }
+
+    .about-list li::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--dorado);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── GALERÍA ── */
+    #galeria {
+      background: var(--blanco);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(59,107,87,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .gallery-cta {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* ── CONTACTO ── */
+    #contacto {
+      background: var(--verde);
+      color: var(--blanco);
+    }
+
+    #contacto .section-title {
+      color: var(--blanco);
+    }
+
+    #contacto .section-desc {
+      color: rgba(255,255,255,0.8);
+    }
+
+    #contacto .section-tag {
+      color: var(--dorado-claro);
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      min-width: 180px;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+      text-decoration: none;
+      color: var(--blanco);
+    }
+
+    .contact-card:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .contact-card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .contact-card-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-card-value {
+      font-size: 0.82rem;
+      opacity: 0.75;
+    }
+
+    /* WhatsApp card especial */
+    .contact-card.wa {
+      background: rgba(37,211,102,0.2);
+      border-color: rgba(37,211,102,0.4);
+    }
+
+    .contact-card.wa:hover {
+      background: rgba(37,211,102,0.35);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--texto);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.82rem;
+    }
+
+    footer a {
+      color: var(--dorado-claro);
+      text-decoration: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 80px;
+      }
+
+      .hero-text {
+        padding: 2.5rem 1.5rem 1.5rem;
+        text-align: center;
+      }
+
+      .hero-desc { max-width: 100%; }
+
+      .hero-stats { justify-content: center; }
+
+      .hero-ctas { justify-content: center; }
+
+      .hero-image {
+        padding: 1rem 1.5rem 3rem;
+        order: -1;
+      }
+
+      .photo-frame {
+        width: 240px;
+        height: 300px;
+      }
+
+      .nav-links { display: none; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+      .about-text .section-header { text-align: center; }
+
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+      section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Lic. Micaela Gómez</a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto" class="nav-cta">Consultar turno</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <span class="hero-badge">Nutricionista Infantil · San Pedro, Bs.As.</span>
+      <h1 class="hero-title">Lic. Micaela<br/>Gómez</h1>
+      <p class="hero-subtitle">Nutrición que cuida desde el primer día</p>
+      <p class="hero-desc">
+        Licenciada en Nutrición especializada en alimentación infantil y nutrición en el embarazo.
+        Acompaño a mamás y familias en cada etapa del crecimiento con un enfoque profesional, empático y personalizado.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">+2</span>
+          <span class="stat-label">Años de experiencia</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1.055</span>
+          <span class="stat-label">Seguidores en IG</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">356</span>
+          <span class="stat-label">Publicaciones</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5493329526735?text=Hola%20Mica%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20turno" class="btn btn-wa" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <a href="tel:+5493329526735" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.3-1.3a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Llamar
+        </a>
+        <a href="https://www.instagram.com/gomezmica_/" class="btn btn-outline" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @gomezmica_
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="photo-frame">
+        <img src="assets/ig_22.jpg" alt="Lic. Micaela Gómez · Nutricionista Infantil" class="photo-main" onerror="this.style.background='linear-gradient(135deg,#3B6B57,#5A8F78)'; this.removeAttribute('src')" />
+        <div class="photo-badge-exp">
+          <div class="exp-num">+2</div>
+          <div class="exp-text">años de experiencia</div>
+        </div>
+        <div class="photo-badge-ig">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#F9A825"/><stop offset="50%" style="stop-color:#E91E63"/><stop offset="100%" style="stop-color:#9C27B0"/></linearGradient></defs>
+            <rect x="2" y="2" width="20" height="20" rx="6" ry="6" fill="url(#ig-grad)"/>
+            <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2" fill="none"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+          </svg>
+          <div class="ig-text">
+            <span class="ig-handle">@gomezmica_</span>
+            <span class="ig-followers">1.055 seguidores</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="section-header">
+      <span class="section-tag">Lo que ofrezco</span>
+      <h2 class="section-title">Servicios de nutrición profesional</h2>
+      <p class="section-desc">
+        Consultas personalizadas para cada etapa de la vida, desde el embarazo hasta la infancia.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🤰</span>
+        <h3 class="service-title">Nutrición en el Embarazo</h3>
+        <p class="service-desc">Acompañamiento nutricional durante toda la gestación. Plan alimentario adaptado a cada trimestre para el bienestar de mamá y bebé.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🍼</span>
+        <h3 class="service-title">Lactancia & Alimentación Complementaria</h3>
+        <p class="service-desc">Orientación para iniciar la alimentación complementaria (BLW y puré progresivo), asegurando una transición saludable y sin estrés.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🥦</span>
+        <h3 class="service-title">Nutrición Infantil</h3>
+        <p class="service-desc">Consultas para niños de todas las edades. Evaluación nutricional, hábitos alimentarios saludables y manejo del niño selectivo.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📋</span>
+        <h3 class="service-title">Plan Alimentario Personalizado</h3>
+        <p class="service-desc">Plan adaptado a las necesidades específicas del paciente, sus gustos y la dinámica familiar. Seguimiento y ajustes continuos.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">💻</span>
+        <h3 class="service-title">Consulta Online</h3>
+        <p class="service-desc">Disponible para atención a distancia por videollamada. Ideal para familias que no pueden acercarse a San Pedro, Buenos Aires.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📈</span>
+        <h3 class="service-title">Seguimiento Nutricional</h3>
+        <p class="service-desc">Turnos de seguimiento para monitorear el progreso, ajustar el plan y resolver dudas durante el proceso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <img src="assets/ig_12.jpg" alt="Lic. Micaela Gómez" class="about-img"
+          onerror="this.src='assets/ig_8.jpg'; this.onerror=null;" />
+      </div>
+      <div class="about-text">
+        <div class="section-header">
+          <span class="section-tag">Sobre mí</span>
+          <h2 class="section-title">Micaela Gómez, Lic. en Nutrición</h2>
+        </div>
+        <p>
+          Soy Licenciada en Nutrición recibida hace más de dos años, con un fuerte compromiso
+          hacia la nutrición materno-infantil. Me especializo en acompañar a mamás desde el embarazo
+          y a familias con niños en todas las etapas de su crecimiento.
+        </p>
+        <p>
+          Creo en un enfoque flexible, real y sin restricciones extremas. Mi objetivo es que
+          cada familia pueda construir hábitos saludables de manera sostenible y con disfrute.
+        </p>
+        <p>
+          Atiendo de forma presencial en San Pedro, Buenos Aires, y también online para toda
+          la Argentina.
+        </p>
+        <ul class="about-list">
+          <li>Licenciada en Nutrición (RUFEN)</li>
+          <li>Especialización en nutrición materno-infantil</li>
+          <li>Nutrición en embarazo y lactancia</li>
+          <li>Alimentación complementaria (BLW y puré progresivo)</li>
+          <li>Atención presencial en San Pedro · Online para todo el país</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="section-header">
+      <span class="section-tag">Instagram</span>
+      <h2 class="section-title">Contenido sobre nutrición</h2>
+      <p class="section-desc">
+        Fotos, consejos y recetas que comparto en mi Instagram todos los días.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/ig_0.webp" alt="Nutrición infantil" onerror="this.parentElement.style.background='#EFF5F2'; this.style.display='none'" />
+        <div class="gallery-overlay"><span>📸</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/ig_10.webp" alt="Nutrición embarazo" onerror="this.parentElement.style.background='#EFF5F2'; this.style.display='none'" />
+        <div class="gallery-overlay"><span>📸</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/ig_12.jpg" alt="Consulta nutricional" onerror="this.parentElement.style.background='#EFF5F2'; this.style.display='none'" />
+        <div class="gallery-overlay"><span>📸</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/ig_7.webp" alt="Alimentación saludable" onerror="this.parentElement.style.background='#EFF5F2'; this.style.display='none'" />
+        <div class="gallery-overlay"><span>📸</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/ig_15.webp" alt="Nutrición bebés" onerror="this.parentElement.style.background='#EFF5F2'; this.style.display='none'" />
+        <div class="gallery-overlay"><span>📸</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/ig_16.webp" alt="Plan alimentario" onerror="this.parentElement.style.background='#EFF5F2'; this.style.display='none'" />
+        <div class="gallery-overlay"><span>📸</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-cta">
+      <a href="https://www.instagram.com/gomezmica_/" class="btn btn-outline" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Ver más en Instagram · @gomezmica_
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="section-header">
+      <span class="section-tag">Contacto</span>
+      <h2 class="section-title">¿Querés pedir un turno?</h2>
+      <p class="section-desc">
+        Podés comunicarte por WhatsApp, llamar directamente o escribirme por Instagram.
+        Respondo todos los mensajes a la brevedad.
+      </p>
+    </div>
+
+    <div class="contact-cards">
+      <a href="https://wa.me/5493329526735?text=Hola%20Mica%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20turno" class="contact-card wa" target="_blank">
+        <span class="contact-card-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </span>
+        <div class="contact-card-label">WhatsApp</div>
+        <div class="contact-card-value">+54 9 3329 52-6735</div>
+      </a>
+
+      <a href="tel:+5493329526735" class="contact-card" target="_blank">
+        <span class="contact-card-icon">📞</span>
+        <div class="contact-card-label">Llamada directa</div>
+        <div class="contact-card-value">+54 9 3329 52-6735</div>
+      </a>
+
+      <a href="https://www.instagram.com/gomezmica_/" class="contact-card" target="_blank">
+        <span class="contact-card-icon">📸</span>
+        <div class="contact-card-label">Instagram</div>
+        <div class="contact-card-value">@gomezmica_</div>
+      </a>
+
+      <a href="mailto:thomasfrangi247@gmail.com" class="contact-card">
+        <span class="contact-card-icon">✉️</span>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">thomasfrangi247@gmail.com</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Lic. Micaela Gómez · Nutricionista Infantil · San Pedro, Buenos Aires</p>
+    <p style="margin-top:0.5rem">
+      <a href="https://www.instagram.com/gomezmica_/" target="_blank">@gomezmica_</a> ·
+      <a href="tel:+5493329526735">+54 9 3329 52-6735</a>
+    </p>
+  </footer>
+
+</body>
+</html>
